@@ -1,5 +1,4 @@
-import { LayoutWrapper } from "./LayoutStyles"
-
+import { LayoutWrapper } from "./LayoutStyles";
 function Layout({children}) {
   return (
     <div>
