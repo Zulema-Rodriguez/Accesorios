@@ -1,54 +1,32 @@
 
 
-import Categorias from "./components/Categorias/Categorias"
-import Footer from "./components/Footer/Footer"
-import Hero from "./components/Hero/Hero"
-import Layout from "./components/Layout/Layout"
-import Navbar from "./components/Navbar/Navbar"
-import CardsProductos from "./components/Productos/CardsProductos"
-import Nosotros from "./components/Nosotros/Nosotros"
-
-import {BrowserRouter,Routes,Route} from "react-router-dom"
-import NoPage from "./assets/paginas/NoPage"
-import About from "./assets/paginas/About"
-import Contacto from "./assets/paginas/Contacto"
-import Layout2 from "./assets/paginas/Layout2"
-import Productos from "./assets/paginas/Productos"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./components/Home/Home";
+import Layout from "./components/Layout/Layout";
+import Nosotros from "./pages/Nosotros";
+import Contacto from "./pages/Contacto";
+import Productos from "./pages/Productos";
+import Footer from "./components/Footer/Footer"; // Asegúrate de importar Footer
+import NoPage from './pages/NoPage';
 
 function App() {
-  
-
   return (
-    <>
-      <Navbar/>
+    <Router>
+      <Navbar />
       <Layout>
-        <Hero/>
-        <Categorias/>
-        <CardsProductos/>
-      </Layout>
-      <Nosotros/>
-      <Footer/>
-
-
-      <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Layout2/>}>
-          <Route index element={<Productos/>}/>
-          <Route path='about' element={<About/>}/>
-          <Route path='contacto' element={<Contacto/>}/>
+        <Routes>
+          <Route path="/" element={<Home />} /> {/* Página de inicio */}
+          <Route path="/productos" element={<Productos />} />
+          <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/contacto" element={<Contacto />} />
           <Route path='*' element={<NoPage/>}/>
-          <Route/>
-        </Route>
-      </Routes>
-    </BrowserRouter>
-
-      
-    </>
-
-
-    
-
+          {/* Puedes agregar más rutas según sea necesario */}
+        </Routes>
+      </Layout>
+      <Footer />
+    </Router>
   );
 }
 
-export default App
+export default App;

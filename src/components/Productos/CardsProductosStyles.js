@@ -33,10 +33,17 @@ export const Card = styled.div`
 export const Image = styled.div`
   background-color: #e0e0e0;
   height: 200px;
+  width: 100%;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+
+  img{
+     width: 100%;
+     height: auto;
+  }
 `;
 
 export const Description = styled.div`
